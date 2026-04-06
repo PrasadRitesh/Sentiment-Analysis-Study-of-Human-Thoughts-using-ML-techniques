@@ -1,0 +1,88 @@
+{% extends 'users/userbase.html' %}
+
+{% block title %}
+    User Training
+{% endblock %}
+
+{% block user_training %}
+    active
+{% endblock %}
+
+{% block content %}
+<style>
+    .card {
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+    .card-title {
+        color: blueviolet;
+        font-size: large;
+        font-weight: bold;
+    }
+    .card-body table {
+        width: 100%;
+    }
+    .card-body td {
+        color: blueviolet;
+        font-size: large;
+    }
+    h2 {
+        color: blueviolet;
+    }
+</style>
+
+<center>
+    <div class="card" style="width: 50%;">
+        <div class="card-body">
+            <h2 class="card-title">Results of LSTM</h2>
+            <table class="table">
+                <tr>
+                    <td>Accuracy:</td>
+                    <td>{{ acc }}</td>
+                </tr>
+                <tr>
+                    <td>Loss:</td>
+                    <td>{{ loss }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card" style="width: 50%;">
+        <div class="card-body">
+            <h2 class="card-title">Results of RNN</h2>
+            <table class="table">
+                <tr>
+                    <td>Accuracy:</td>
+                    <td>{{ acc1 }}</td>
+                </tr>
+                <tr>
+                    <td>Loss:</td>
+                    <td>{{ loss1 }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card" style="width: 75%;">
+        <div class="card-body">
+            <h3 align="center" class="card-title">Machine Learning Results</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <td>Logistic Regression</td>
+                    <td>{{ cr_log|safe }}</td>
+                </tr>
+                <tr>
+                    <td>Naive Bayes</td>
+                    <td>{{ cr_nv|safe }}</td>
+                </tr>
+                <tr>
+                    <td>Decision Tree</td>
+                    <td>{{ cr_dc|safe }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</center>
+
+{% endblock %}
